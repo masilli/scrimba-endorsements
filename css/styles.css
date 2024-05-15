@@ -92,14 +92,16 @@ h2 {
 }
 
 .publish {
-    animation: dance ease 2s;
+    animation: dance ease .25s;
+    animation-iteration-count: 5;
 }
 
 @keyframes dance {
-    0%,20%,30%,40%,50%,60%,70%,80%,90%,98%,100% {
-        transform: scaleX(1);
+    0%,50% {
+        transform: scaleX(1) translateX(-20px);
     }
-    21%,29%,41%,49%,61%,69%,81%,89%,99% {
-        transform: scaleX(-1);
+    51%,99% {
+        transform: scaleX(-1) translateX(-60px);
+        filter: brightness(0.5) invert(0) sepia(1) hue-rotate(-80deg);
     }
 }
