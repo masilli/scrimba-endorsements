@@ -31,10 +31,6 @@ function publishMessage() {
     }
 }
 
-function clearTextArea() {
-    textArea.value = ""
-}
-
 onValue(messagesInDB, function(snapshot) {
     if (snapshot.exists()) {
         let itemsArray = Object.entries(snapshot.val())
@@ -49,12 +45,16 @@ onValue(messagesInDB, function(snapshot) {
             appendMessageToBoard(currentItem)
         }    
     } else {
-        messageBoard.innerHTML = "Nothing to see here... add some products to the list!"
+        messageBoard.innerHTML = "Nothing to see here..."
     }
 })
 
 function clearMessages() {
     messageBoard.innerHTML = ""
+}
+
+function clearTextArea() {
+    textArea.value = ""
 }
 
 function appendMessageToBoard(item) {
@@ -66,14 +66,6 @@ function appendMessageToBoard(item) {
     newEl.classList.add("message")
     
     newEl.textContent = itemValue
-    
-    // newEl.addEventListener("click", function() {
-    //     let exactLocationOfItemInDB = ref(database, `endorsements/${itemID}`)
-    //     newEl.classList.add("deleted")
-    //     setTimeout(function() {
-    //         remove(exactLocationOfItemInDB)
-    //     }, 500)
-    // })
     
     messageBoard.append(newEl)
 }
