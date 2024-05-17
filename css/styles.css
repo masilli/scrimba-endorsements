@@ -41,20 +41,42 @@ h2 {
     font-size: 20px;
     margin: 24px auto;
 }
+form {
+    display: block;
+    margin: 0 auto;
+}
 
-#input-area {
+.form-field {
     color: #fff;
     background: #444059;
     border: 0;
-    width: 317px;
     padding: 15px 20px;
     border-radius: 8px;
     font-size: 15px;
     text-align: left;
     margin: 0 auto 16px;
+    font-family: 'Inter', sans-serif;
 }
 
-#input-area:focus {
+.form-names {
+    width: 317px;
+    display: flex;
+    margin: 0 auto;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-names .form-field {
+    max-width: calc((317px / 2) - 10px);
+}
+
+#input-area {
+    width: 317px;
+    resize: none;
+}
+
+.form-field:focus {
     box-shadow: inset 0 0 0 2px #28A9F1;
 }
 
@@ -84,11 +106,48 @@ h2 {
     gap: 13px;
 }
 
-#msg-board .message {
+#msg-board .endorsement {
     background: #fff;
     color: #1B1924;
-    font-size: 12px;
+    font-size: 14px;
     padding: 14px 18px;
+}
+
+#msg-board .msg-header,
+#msg-board .msg-footer {
+    display: flex;
+    font-size: 12px;
+}
+
+#msg-board .endorsement .msg-header {
+    justify-content: space-between;
+    font-weight: bold;
+    padding-bottom: 6px;
+    border-bottom: 1px dotted #1B1924;
+}
+
+#msg-board .message {
+    padding: 10px 0;
+    word-wrap: break-word;
+}
+
+#msg-board .msg-footer {
+    justify-content: end;
+    align-items: center;
+    user-select: none;
+    font-weight: bold;
+}
+
+#msg-board .like-button {
+    cursor: pointer;
+}
+
+#msg-board .like-button:hover {
+    color: red;
+}
+
+.liked {
+    color: red!important;
 }
 
 .publish {

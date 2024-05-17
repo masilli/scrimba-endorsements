@@ -1,37 +1,36 @@
 <!doctype html>
 <html>
-    <head><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
-        <title>We are the Champions</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
-        <!-- <link rel="apple-touch-icon" sizes="256x256" href="assets/add2cart-icon-512x512.png">
-        <link rel="icon" type="image/png" sizes="64x64" href="assets/add2cart-icon-64x64.png"> -->
-        <!-- <link rel="manifest" href="/site.webmanifest"> -->
-        <link rel="stylesheet" href="css/styles.css">
-    </head>
-    <body>
-        <div class="container">
-            <img class="freddie" src="imgs/freddie.png">
-            <h1>We are the Champions</h1>
-            <textarea id="input-area" rows="5" placeholder="Write your endorsement here"></textarea>
-            <input type="text" id="sender-name" placeholder="from...">
-            <input type="text" id="receiver-name" placeholder="to...">
-            <button id="publish-button">Publish</button>
-            <h2>- Endorsements -</h2>
-            <div id="msg-board">
-                <!-- <div class="message">
-                    Hey there! This is great! Kudos!
-                </div>
-                <div class="message">
-                    Nicely done!
-                </div>
-                <div class="message">
-                    testing...
-                </div> -->
+
+<head>
+    <title>We are the Champions</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <img class="freddie" src="imgs/freddie.png">
+        <h1>We are the Champions</h1>
+        <form>
+            <textarea id="input-area" class="form-field" rows="5" placeholder="write your endorsement here..." required></textarea>
+            <div class="form-names">
+                <input type="text" id="sender-name" class="form-field" placeholder="from..." maxlength="16" required>
+                <input type="text" id="receiver-name" class="form-field" placeholder="to..." maxlength="12" required>
+            </div>
+            <button id="publish-button" type="submit">Publish</button>
+        </form>
+        <h2>- Endorsements -</h2>
+        <div id="msg-board">
+            <div class="endorsement">
             </div>
         </div>
-        <script src="js/index.js" type="module"></script>
-    </body>
+    </div>
+    <script src="js/index.js" type="module"></script>
+</body>
+
 </html>
