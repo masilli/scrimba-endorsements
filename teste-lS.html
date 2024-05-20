@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>localStorage</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            height: 100vh;
+            width: 100vw;
+            display: grid;
+            place-items: center;
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+        }
+        main {
+            background-color: tomato;
+            width: 33vw;
+            padding: 3rem;
+            text-align: center;
+            color: #fff;
+        }
+    </style>
+    
+</head>
+
+<body>
+
+    <main id="main">
+        <button id="myButton">Click Me!</button> <button id="clearButton">Reset</button>
+        <div id="statusMessage"></div>
+    </main>
+
+    <script type="module">
+        const main = document.getElementById("main");
+        document.addEventListener('DOMContentLoaded', () => {
+            const button = document.getElementById('myButton');
+            const clearButton = document.getElementById('clearButton');
+            const statusMessage = document.getElementById('statusMessage');
+
+            // Function to update the DOM based on localStorage
+            const updateDOM = () => {
+                if (localStorage.getItem('buttonClicked')) {
+                    statusMessage.textContent = "You've already clicked the button!";
+                    statusMessage.style.display = "inline-block";
+                    button.style.display = "none";
+                    main.style.backgroundColor = "teal";
+                    clearButton.style.display = "inline-block";
+                    clearButton.disabled = false;
+                } else {
+                    statusMessage.textContent = "";
+                    statusMessage.style.display = "none";
+                    button.style.display = "inline-block";
+                    button.disabled = false;
+                    clearButton.style.display = "none";
+                    clearButton.disabled = true;
+                    main.style.backgroundColor = "tomato";
+                }
+            };
+
+            // Check localStorage on page load
+            updateDOM();
+
+            // Add event listener to the button
+            button.addEventListener('click', () => {
+                localStorage.setItem('buttonClicked', 'true');
+                updateDOM();
+            });
+            clearButton.addEventListener('click', () => {
+                localStorage.removeItem('buttonClicked');
+                updateDOM();
+            });
+        });
+
+    </script>
+
+</body>
+
+</html>
